@@ -1,0 +1,15 @@
+name: Purge jsDelivr CDN Cache
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  purge:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Send purge request to jsDelivr
+        run: |
+          curl -X GET "https://purge.jsdelivr.net/gh/tinet-jutt/ai-duilian/config.js"
